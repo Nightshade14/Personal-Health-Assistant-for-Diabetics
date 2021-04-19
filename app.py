@@ -28,7 +28,7 @@ def predict():
 
     output = float(prediction)
 
-    prediction_text = f'Your chances of having diabetes are {output}.\n'
+    prediction_text = f'Your chances of having diabetes are {output*100}%.\n'
 
     if (output >= 0.85):
         prediction_text = prediction_text + 'You should consider seeing a doctor.'
