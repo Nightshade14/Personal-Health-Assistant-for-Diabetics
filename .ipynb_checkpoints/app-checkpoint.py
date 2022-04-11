@@ -1,15 +1,11 @@
 #import libraries
 import numpy as np
-import tensorflow as tf
-from tensorflow import keras
 from flask import Flask, request, jsonify, render_template
 import pickle
 
 # Initialize the flask App
 app = Flask(__name__)
-model = keras.models.load_model('annModel')
-standardScaler = pickle.load(open('standardScaler.pkl', 'rb'))
-
+model = pickle.load(open('Model_wo_DPF.pkl', 'rb'))
 
 # default page of our web-app
 
@@ -28,22 +24,11 @@ def predict():
     '''
     int_features = [float(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
-    final_features = standardScaler.transform(final_features)
-    print('*******************')
-    print(final_features)
-    print('*******************')
-
-    prediction = model.predict(final_features)
-
-
-    print('*******************')
-    print(prediction)
-    print('*******************')
-
+    prediction = model.predict_proba(final_features)[:, 1]
 
     output = float(prediction)
 
-    prediction_text = 'Your chances of having diabetes are {0:.2f}%.\n'.format(output*100)
+    prediction_text = f'Your chances of having diabetes are {output*100}%.\n'
 
     if (output >= 0.85):
         prediction_text = prediction_text + 'You should consider seeing a doctor.'
