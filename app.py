@@ -29,17 +29,9 @@ def predict():
     int_features = [float(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
     final_features = standardScaler.transform(final_features)
-    print('*******************')
     print(final_features)
-    print('*******************')
 
     prediction = model.predict(final_features)
-
-
-    print('*******************')
-    print(prediction)
-    print('*******************')
-
 
     output = float(prediction)
 
