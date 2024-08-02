@@ -1,31 +1,30 @@
-#import libraries
+# import libraries
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 from flask import Flask, request, jsonify, render_template
 import pickle
 
+
 # Initialize the flask App
 app = Flask(__name__)
-model = keras.models.load_model('annModel')
-standardScaler = pickle.load(open('standardScaler.pkl', 'rb'))
 
 
-# default page of our web-app
-
-
+# default page of the web-app
 @app.route('/')
 def home():
     return render_template('index.html')
 
+
 # To use the predict button in our web-app
-
-
 @app.route('/predict', methods=['POST'])
 def predict():
     '''
     For rendering results on HTML GUI
     '''
+
+    model = keras.models.load_model('annModel')
+    standardScaler = pickle.load(open('standardScaler.pkl', 'rb'))
     int_features = [float(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
     final_features = standardScaler.transform(final_features)
