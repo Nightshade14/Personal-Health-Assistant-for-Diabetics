@@ -1,8 +1,8 @@
 from fastAPI import FastAPI
 from data_schema.Data import Data
 from tensorflow import keras
-from flask import Flask, request, jsonify, render_template
 import pickle
+import numpy as np
 try:
 	
 	app = FastAPI()
@@ -21,7 +21,7 @@ async def predict(request_data: Data):
 
 	model = keras.models.load_model('annModel')
 	standardScaler = pickle.load(open('standardScaler.pkl', 'rb'))
-	int_features = [float(x) for x in request.form.values()]
+	int_features = [float(x) for x in request_data.form.values()]
 	final_features = [np.array(int_features)]
 	final_features = standardScaler.transform(final_features)
 	print(final_features)
