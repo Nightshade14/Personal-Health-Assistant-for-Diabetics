@@ -2,6 +2,9 @@
 
 The project uses Machine Learning to predict the chances of diabetes
 
+Technology used: Python, Flask -> FastAPI, Numpy, Pandas, Matplotlib, Tensorflow, CATBoost, HTML, CSS, Javascript, Bootstrap.
+
+
 ## App Components
 
 The project is a web-app. It is a website which helps diabetic people make better life decisions while keeping diabetes at the centre while making lifestyle choices. The project provides following functionalities:
