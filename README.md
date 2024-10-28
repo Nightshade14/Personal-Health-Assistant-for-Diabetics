@@ -2,7 +2,7 @@
 
 The project uses Machine Learning to predict the chances of diabetes
 
-Technology used: Python, Flask -> FastAPI, Numpy, Pandas, Matplotlib, Tensorflow, CATBoost, HTML, CSS, Javascript, Bootstrap.
+Technologies used: Python, Flask -> FastAPI, Numpy, Pandas, Matplotlib, Tensorflow, CATBoost, HTML, CSS, Javascript, Bootstrap.
 
 
 ## App Components
