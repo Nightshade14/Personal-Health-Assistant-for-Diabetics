@@ -20,3 +20,6 @@ All the information is sourced by consulting with a Physician (doctor).
 ## Technical details
 
 The web app uses HTML, CSS, JavaScript and Bootstrap for the fromtend microservice. The Backend microservice is powered with FastAPI. FastAPI makes it possible to serve request fast in asynchronous manner. The server is designed to be fault-tolerant; able to serve high volume of requests without going down (easily).
+
+## Pending Features / Tasks
+- Add static type checking
