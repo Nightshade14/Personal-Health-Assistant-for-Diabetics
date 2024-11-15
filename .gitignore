@@ -1,2 +1,6 @@
 **/.ipynb_checkpoints
 **/catboost_info
+**/uv.lock
+**/**cache**
+**/.python-version
+**/.venv
